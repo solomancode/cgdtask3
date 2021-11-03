@@ -1,0 +1,24 @@
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users.$users|async">
+        <td>{{user.id}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.firstName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <section class="pagination">
+    <button [attr.disabled]="currentPage === firstPage() ? true : null" (click)="loadPage(firstPage())" class="first-page-btn">first</button>
+    <button [attr.disabled]="currentPage === previousPage() ? true : null" (click)="loadPage(previousPage())" class="previous-page-btn">previous</button>
+    <button [attr.disabled]="currentPage === nextPage() ? true : null" (click)="loadPage(nextPage())" class="next-page-btn">next</button>
+    <button [attr.disabled]="currentPage === lastPage() ? true : null" (click)="loadPage(lastPage())" class="last-page-btn">last</button>
+  </section>
+</section>
